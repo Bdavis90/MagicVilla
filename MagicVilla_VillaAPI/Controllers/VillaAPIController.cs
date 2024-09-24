@@ -146,7 +146,7 @@ namespace MagicVilla_VillaAPI.Controllers
                 return await Task.FromResult(BadRequest());
             }
 
-            var villa = _db.Villas.FirstOrDefault(x => x.Id == id);
+            var villa = _db.Villas.AsNoTracking().FirstOrDefault(x => x.Id == id);
             var villaDto = new VillaDto
             {
                 Id = villa.Id,
